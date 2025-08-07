@@ -1,12 +1,12 @@
 export interface UserDetails {
-    id:number;
-    name:string;
-    avatarUrl:string;
-    score:number;
-    siteAdmin:boolean;
-    type:string;
-    url:string;
-    userViewType:string;
+  id: number;
+  name: string;
+  avatarUrl: string;
+  score: number;
+  siteAdmin: boolean;
+  type: string;
+  url: string;
+  userViewType: string;
 }
 
 export interface GitHubUser {
@@ -31,5 +31,3 @@ export interface GitHubUser {
   score: number;
   user_view_type: string;
 }
-
-

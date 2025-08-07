@@ -1,9 +1,9 @@
 export enum SearchTapLabel {
   Users = 'Users',
-  Repositories = 'Repositories'
+  Repositories = 'Repositories',
 }
 
 export interface SearchTap {
-    label: SearchTapLabel
-    isActive: boolean
+  label: SearchTapLabel;
+  isActive: boolean;
 }

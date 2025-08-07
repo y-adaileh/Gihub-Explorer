@@ -1,17 +1,17 @@
-import { useEffect, useState } from "react";
-
+import { useEffect, useState } from 'react';
 
 function useDebounce(searchTerm: string) {
-    const [debounce, setDebounce] = useState<string>('')
+  const [debounce, setDebounce] = useState<string>('');
 
-    useEffect(() => {
-        const debounceTimer = setTimeout(() => { setDebounce(searchTerm) }, 500)
+  useEffect(() => {
+    const debounceTimer = setTimeout(() => {
+      setDebounce(searchTerm);
+    }, 500);
 
-        return () => clearTimeout(debounceTimer)
+    return () => clearTimeout(debounceTimer);
+  }, [searchTerm]);
 
-    }, [searchTerm])
-
-    return [debounce];
+  return [debounce];
 }
 
 export default useDebounce;

@@ -1,3 +1,2 @@
-
-export * from './SearchField'
-export * from './SearchTap'
+export * from './SearchField';
+export * from './SearchTap';

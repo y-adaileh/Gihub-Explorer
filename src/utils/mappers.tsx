@@ -1,6 +1,14 @@
-import { UserDetails, GitHubUser, GitHubRepositoryData, RepositoryDetails } from "@/types";
+import {
+  UserDetails,
+  GitHubUser,
+  GitHubRepositoryData,
+  RepositoryDetails,
+} from '@/types';
 
-export const mapUserProfiles = (userProfilesData: GitHubUser[]): UserDetails[] => userProfilesData.map(user => ({
+export const mapUserProfiles = (
+  userProfilesData: GitHubUser[]
+): UserDetails[] =>
+  userProfilesData.map((user) => ({
     id: user.id,
     name: user.login,
     avatarUrl: user.avatar_url,
@@ -9,10 +17,12 @@ export const mapUserProfiles = (userProfilesData: GitHubUser[]): UserDetails[] =
     type: user.type,
     siteAdmin: user.site_admin,
     userViewType: user.user_view_type,
-}))
+  }));
 
-export const mapRepositoriesData = (reposData: GitHubRepositoryData[]): RepositoryDetails[] => {
-  return reposData.map(repo => ({
+export const mapRepositoriesData = (
+  reposData: GitHubRepositoryData[]
+): RepositoryDetails[] => {
+  return reposData.map((repo) => ({
     id: repo.id,
     name: repo.name,
     owner: {
@@ -28,7 +38,7 @@ export const mapRepositoriesData = (reposData: GitHubRepositoryData[]): Reposito
     url: repo.html_url,
     forksCount: repo.forks_count,
     languages: repo.languages || (repo.language ? [repo.language] : []),
-    forkUsers: (repo.forkUsers || []).map(user => ({
+    forkUsers: (repo.forkUsers || []).map((user) => ({
       id: user.owner.id,
       name: user.owner.login,
       avatarUrl: user.owner.avatar_url,
