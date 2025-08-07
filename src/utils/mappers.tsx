@@ -1,4 +1,4 @@
-import { UserDetails, GitHubUser, GitHubRepositoryData, RepositoryDetails, GitHubRepositoryOwner } from "@/types";
+import { UserDetails, GitHubUser, GitHubRepositoryData, RepositoryDetails } from "@/types";
 
 export const mapUserProfiles = (userProfilesData: GitHubUser[]): UserDetails[] => userProfilesData.map(user => ({
     id: user.id,

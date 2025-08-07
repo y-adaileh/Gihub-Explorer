@@ -1,4 +1,4 @@
-export default {
+const configs =  {
     api: {
         baseUrl: process.env.NEXT_PUBLIC_GITHUB_API_URL || '',
         usersUrlPath: '/search/users',
@@ -12,3 +12,5 @@ export default {
         }
     }
 }
+
+export default configs;
