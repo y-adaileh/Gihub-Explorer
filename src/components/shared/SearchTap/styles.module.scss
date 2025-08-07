@@ -1,0 +1,15 @@
+.tap-container {
+    padding: 8px;
+    background-color: #ffffff5d;
+
+    color: black;
+
+    &.active {
+        button {
+            background: blue;
+             color: white;
+        }
+       
+        border-bottom: 1px solid #eef3f2;
+    }
+}
