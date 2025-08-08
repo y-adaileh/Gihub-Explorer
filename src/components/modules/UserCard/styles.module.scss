@@ -1,0 +1,98 @@
+// Dark mode palette
+$user-primary: #d1d9e6; // light grayish blue (text)
+$user-secondary: #a0aec0; // grayish blue (subtext)
+$user-accent: #38b2ac; // teal (accent)
+$user-bg: #1a202c; // dark navy background
+$user-shadow: rgba(0, 0, 0, 0.6); // darker shadow
+$user-gray: #718096; // medium gray
+$user-admin-bg: #e53e3e; // bright red (admin badge)
+
+.user-card {
+  display: flex;
+  align-items: center;
+  background-color: $user-bg;
+  box-shadow: 0 2px 8px $user-shadow;
+  border-radius: 8px;
+  padding: 15px 20px;
+  margin: 12px 0;
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+  cursor: pointer;
+
+  width: 320px;
+  height: 110px;
+
+  &:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+    transform: translateY(-5px);
+  }
+}
+
+.avatar-wrapper {
+  flex-shrink: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 70px;
+  height: 70px;
+  margin-right: 20px;
+  border: 2px solid $user-accent;
+}
+
+.avatar {
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+}
+
+.user-info {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.user-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: $user-primary;
+  text-decoration: none;
+  text-transform: capitalize;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  &:hover {
+    color: $user-accent;
+    text-decoration: underline;
+  }
+}
+
+.user-type {
+  font-size: 0.9rem;
+  color: $user-secondary;
+  margin-top: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.user-score {
+  margin-top: 6px;
+  font-size: 0.9rem;
+  color: $user-gray;
+}
+
+.admin-badge {
+  margin-top: 8px;
+  display: inline-block;
+  background-color: $user-admin-bg;
+  color: white;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  width: fit-content;
+}

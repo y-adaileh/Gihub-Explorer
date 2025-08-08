@@ -17,6 +17,7 @@ export const mapUserProfiles = (
     type: user.type,
     siteAdmin: user.site_admin,
     userViewType: user.user_view_type,
+    profileUrl: user.html_url,
   }));
 
 export const mapRepositoriesData = (
@@ -45,6 +46,7 @@ export const mapRepositoriesData = (
       url: user.owner.url,
       type: user.owner.type,
       userViewType: user.owner.user_view_type,
+      profileUrl: user.owner.html_url,
     })),
   }));
 };

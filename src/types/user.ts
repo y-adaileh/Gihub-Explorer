@@ -7,6 +7,7 @@ export interface UserDetails {
   type: string;
   url: string;
   userViewType: string;
+  profileUrl: string;
 }
 
 export interface GitHubUser {

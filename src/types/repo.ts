@@ -26,6 +26,7 @@ export interface RepositoryOwner {
   url: string;
   type: string;
   userViewType: string;
+  profileUrl: string;
 }
 
 export interface GitHubRepositoryData {

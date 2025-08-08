@@ -2,7 +2,15 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import config from '@/config';
-import { SearchField, SearchTap } from '@/components';
+import {
+  Loader,
+  SearchField,
+  SearchTap,
+  NoDataMessage,
+  ErrorMessage,
+} from '@/components';
+import UserCard from '../UserCard';
+import RepositoryCard from '../RepositoryCard';
 import {
   SearchTap as SearchTapType,
   SearchTapLabel,
@@ -57,12 +65,76 @@ function SearchSection() {
       },
     ];
     return (
-      <div className={styles['tabs-container']}>
+      <div className={styles['taps-container']}>
         {searchTaps.map((tap) => (
           <SearchTap key={tap.label} {...tap} onTapSelect={onTapSelect} />
         ))}
       </div>
     );
+  };
+
+  const renderTapMessage = () => {
+    const TAP_MESSAGES = {
+      [SearchTapLabel.Users]: `Browse GitHub’s community of passionate developers. Discover profiles, projects,
+         and expertise from across the globe.`,
+      [SearchTapLabel.Repositories]: `Explore powerful GitHub repositories. Find open-source projects,
+         tools, and libraries to boost your development journey.`,
+    };
+
+    return (
+      <div className={styles['tap-message']}>
+        <p>{TAP_MESSAGES[activeTap]}</p>
+      </div>
+    );
+  };
+
+  const renderResultsUsersCards = () => {
+    return (
+      <div className={styles['cards-container']}>
+        {searchUsersResults.map((user, idx, self) => (
+          <UserCard
+            key={user.id}
+            user={user}
+            lastNodeRef={self.length === idx + 1 ? lastNodeRef : null}
+          />
+        ))}
+      </div>
+    );
+  };
+
+  const renderResultsRepositoryCards = () => {
+    return (
+      <div className={styles['repositories-container']}>
+        {searchReposResults.map((repository, idx, self) => (
+          <RepositoryCard
+            key={repository.id}
+            repository={repository}
+            lastNodeRef={self.length === idx + 1 ? lastNodeRef : null}
+          />
+        ))}
+      </div>
+    );
+  };
+
+  const renderResultsCards = () => {
+    if (activeTap === SearchTapLabel.Users) {
+      return renderResultsUsersCards();
+    }
+
+    if (activeTap === SearchTapLabel.Repositories) {
+      return renderResultsRepositoryCards();
+    }
+  };
+
+  const renderNoDataMessage = () => {
+    if (
+      searchTerm.length > 3 &&
+      !(searchUsersResults.length || searchReposResults.length) &&
+      !searchError &&
+      !loading
+    ) {
+      return <NoDataMessage />;
+    }
   };
 
   // Handlers
@@ -94,10 +166,10 @@ function SearchSection() {
             `${config.api.routes.users}?searchTerm=${debounceSearchTerm}&limit=${PAGE_LIMIT}&page=${page}`
           );
           if (data?.length !== 0) {
-            setHasMoreItems(true);
+            console.log('data?.length', data?.length);
+
+            setHasMoreItems(data?.length === PAGE_LIMIT);
             setSearchUsersResults((prev) => [...prev, ...data]);
-          } else {
-            setHasMoreItems(false);
           }
         } else {
           const { data } = await axios.get(
@@ -105,10 +177,8 @@ function SearchSection() {
           );
 
           if (data?.length !== 0) {
-            setHasMoreItems(true);
+            setHasMoreItems(data?.length === PAGE_LIMIT);
             setSearchReposResults((prev) => [...prev, ...data]);
-          } else {
-            setHasMoreItems(false);
           }
         }
       }
@@ -119,6 +189,11 @@ function SearchSection() {
     } finally {
       setLoading(false);
     }
+  };
+
+  const onRetry = () => {
+    setLoading(true);
+    fetchGithubInfo();
   };
 
   // Debounce scrolling
@@ -141,46 +216,17 @@ function SearchSection() {
     <div className={styles.container}>
       <h2>Find Developers and Projects on GitHub</h2>
       {renderSearchTaps()}
-      <div>
-        <SearchField
-          placeholder={SEARCH_FIELD_PLACEHOLDERS[activeTap]}
-          value={searchTerm}
-          type="text"
-          onChange={searchTermChangeHandler}
-        />
-      </div>
-
-      <div>
-        {(activeTap === SearchTapLabel.Users
-          ? searchUsersResults
-          : searchReposResults
-        ).map((user, index, self) => (
-          <div
-            style={{
-              height: '50px',
-              backgroundColor: 'lightblue',
-              color: 'white',
-              borderBottom: '1px solid black',
-            }}
-            key={user.id}
-            ref={self.length === index + 1 ? lastNodeRef : null}
-          >
-            {user.name}
-          </div>
-        ))}
-      </div>
-      <div>{loading && 'loading ...'}</div>
-      {searchError && (
-        <div style={{ color: 'red' }}>
-          <p>{'Something went wrong!'}</p>
-          <button onClick={fetchGithubInfo}>Retry</button>
-        </div>
-      )}
-
-      {searchTerm.length > 3 &&
-        !(searchUsersResults.length || searchReposResults.length) &&
-        !searchError &&
-        !loading && <div style={{ backgroundColor: 'gray' }}>No Data!</div>}
+      {renderTapMessage()}
+      <SearchField
+        placeholder={SEARCH_FIELD_PLACEHOLDERS[activeTap]}
+        value={searchTerm}
+        type="text"
+        onChange={searchTermChangeHandler}
+      />
+      {renderResultsCards()}
+      {loading && <Loader />}
+      {searchError && <ErrorMessage onRetry={onRetry} />}
+      {renderNoDataMessage()}
     </div>
   );
 }

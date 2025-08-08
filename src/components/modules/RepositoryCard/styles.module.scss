@@ -1,0 +1,154 @@
+$bg-dark: #1e272e;
+$text-primary: #ecf0f1;
+$text-secondary: #bdc3c7;
+$accent: #1abc9c;
+$accent-dark: #16a085;
+$shadow: rgba(0, 0, 0, 0.5);
+$border-radius: 8px;
+
+.repository-card {
+  background-color: $bg-dark;
+  color: $text-primary;
+  border-radius: $border-radius;
+  padding: 20px;
+  margin: 12px 0;
+  box-shadow: 0 2px 10px $shadow;
+  width: 340px;
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+    transform: translateY(-5px);
+  }
+}
+
+.repository-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+
+  h3 {
+    margin: 0;
+    font-size: 1.3rem;
+  }
+}
+
+.repo-link {
+  text-transform: capitalize;
+  color: $accent;
+  font-weight: 600;
+
+  &:hover {
+    color: $accent-dark;
+    text-decoration: underline;
+  }
+}
+
+.forks {
+  font-size: 0.9rem;
+  color: $text-secondary;
+
+  span {
+    font-weight: 600;
+    margin-right: 4px;
+  }
+}
+
+.description {
+  font-size: 1rem;
+  color: $text-secondary;
+  margin-bottom: 16px;
+  min-height: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 50px;
+}
+
+.languages {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+  min-height: 100px;
+}
+
+.language-badge {
+  display: flex;
+  align-items: center;
+  background-color: #34495e;
+  color: $text-primary;
+  padding: 4px 10px;
+  border-radius: 16px;
+  font-size: 0.85rem;
+  max-height: 26px;
+
+  span {
+    margin-left: 6px;
+  }
+
+  .language-icon {
+    border-radius: 50%;
+  }
+}
+
+.fork-users {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  color: $text-secondary;
+
+  span {
+    font-weight: 600;
+  }
+
+  &-list {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+    align-items: center;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    justify-content: space-around;
+  }
+
+  .fork-user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: $text-primary;
+    width: 50px;
+    flex-shrink: 0;
+
+    &:hover {
+      color: $accent;
+    }
+  }
+
+  .fork-user-avatar {
+    border-radius: 50%;
+    border: 2px solid $accent;
+    width: 30px;
+    height: 30px;
+  }
+
+  .fork-user-name {
+    font-size: 0.7rem;
+    text-transform: capitalize;
+    text-align: center;
+    margin-top: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .more-forks {
+    font-size: 0.85rem;
+    color: $accent;
+    align-self: center;
+  }
+}

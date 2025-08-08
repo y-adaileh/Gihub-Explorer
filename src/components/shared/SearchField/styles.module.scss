@@ -1,0 +1,32 @@
+@use '../../../styles/shared/\ _colors.scss' as *;
+
+// .input {
+//   margin: 10px;
+//   padding: 3px 6px;
+//   width: 40%;
+//   height: 40px;
+//   border: 1px solid $color-gray-300;
+// }
+
+// @use '../../../styles/shared/_colors.scss' as *;
+
+.input {
+  margin: 10px auto;
+  padding: 8px 14px;
+  width: 50%;
+  height: 42px;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #0d1117;
+  color: white;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #58a6ff;
+}
+
+.input:hover {
+  border-color: #58a6ff;
+}

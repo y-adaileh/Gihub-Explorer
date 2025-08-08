@@ -1,3 +1,4 @@
+import styles from './styles.module.scss';
 export interface SearchFieldProps {
   placeholder: string;
   value: string;
@@ -8,7 +9,7 @@ export interface SearchFieldProps {
 export const SearchField = (props: SearchFieldProps) => {
   return (
     <div>
-      <input {...props} />
+      <input className={styles.input} {...props} />
     </div>
   );
 };

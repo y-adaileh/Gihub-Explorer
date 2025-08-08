@@ -1,0 +1,20 @@
+// GitHub-inspired colors
+$color-white: #ffffff;
+$color-black: #24292f;
+$color-gray-100: #f6f8fa;
+$color-gray-200: #e1e4e8;
+$color-gray-300: #d1d5da;
+$color-gray-600: #586069;
+$color-gray-700: #444d56;
+
+$color-primary: #2da44e;
+$color-primary-hover: #2c974b;
+$color-blue: #0969da;
+$color-blue-hover: #0757b3;
+$color-danger: #cf222e;
+
+@mixin phone {
+  @media (max-width: 600px) {
+    @content;
+  }
+}

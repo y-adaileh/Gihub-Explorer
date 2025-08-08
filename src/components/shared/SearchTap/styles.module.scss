@@ -1,15 +1,56 @@
+@use '../../../styles/shared/\ _colors.scss' as *;
+
+// .tap-container {
+//   width: 170px;
+//   color: black;
+
+//   &.active {
+//     button {
+//       background: $color-primary;
+//       color: $color-white;
+//       height: 100%;
+//       width: 100%;
+//       border-radius: 25px 25px 0 0;
+//     }
+//   }
+
+//   button {
+//     background: $color-white;
+//     color: $color-primary;
+//     height: 100%;
+//     width: 100%;
+//     border: 1px solid $color-white;
+//     &:hover {
+//       cursor: pointer;
+//     }
+//   }
+// }
+
+// @use '../../../styles/shared/\_colors.scss' as *;
+
 .tap-container {
-  padding: 8px;
-  background-color: #ffffff5d;
+  width: 170px;
+}
 
-  color: black;
+.tap-container.active button {
+  background: linear-gradient(90deg, #58a6ff, #1f6feb);
+  color: white;
+  height: 100%;
+  width: 100%;
+  border-radius: 25px 25px 0 0;
+}
 
-  &.active {
-    button {
-      background: blue;
-      color: white;
-    }
+.tap-container button {
+  background: #21262d;
+  color: #58a6ff;
+  height: 100%;
+  width: 100%;
+  border: 1px solid #30363d;
+  font-weight: 500;
+  border-radius: 6px 6px 0 0;
+}
 
-    border-bottom: 1px solid #eef3f2;
-  }
+.tap-container button:hover {
+  cursor: pointer;
+  background: #30363d;
 }

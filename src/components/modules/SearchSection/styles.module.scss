@@ -1,10 +1,73 @@
-.container {
-  background-color: #e9f6f8;
-  padding: 60px 40px;
-  text-align: center;
+@use '../../../styles/shared/\ _colors.scss' as *;
 
-  .tabs-container {
-    display: flex;
-    justify-content: center;
+@use 'sass:color';
+
+.container {
+  text-align: center;
+  padding: 40px 80px;
+  color: #c9d1d9;
+  background: linear-gradient(135deg, #0d1117, #161b22);
+  min-height: 100vh;
+
+  @include phone {
+    padding: 20px;
   }
+}
+
+.taps-container {
+  display: flex;
+  justify-content: center;
+  height: 40px;
+  margin-bottom: 12px;
+  gap: 8px;
+}
+
+.tap-message {
+  font-size: 16px;
+  text-align: center;
+  margin-block: 16px;
+}
+
+.tap-message p {
+  max-width: 500px;
+  margin: 0 auto;
+  color: #8b949e;
+}
+
+.loading {
+  margin-top: 12px;
+  color: #58a6ff;
+  font-weight: bold;
+}
+
+.error {
+  background: #da3633;
+  padding: 10px;
+  border-radius: 6px;
+  color: white;
+  margin-top: 12px;
+}
+
+.no-data {
+  background-color: #21262d;
+  color: #c9d1d9;
+  padding: 8px;
+  border-radius: 6px;
+  margin-top: 12px;
+}
+
+.cards-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16;
+  margin-top: 20px;
+}
+
+.repositories-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16;
+  margin-top: 20px;
 }
