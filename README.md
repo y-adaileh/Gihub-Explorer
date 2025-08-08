@@ -1,36 +1,114 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
+# GitHub Explorer
+
+## Project Overview
+
+GitHub Explorer is a web application that allows users to search and explore GitHub profiles and repositories. It provides a user-friendly interface to search for GitHub users and repositories with infinite scrolling, detailed user and repo cards, and language badges.
+
+This project is built using Next.js, TypeScript, Sass, and Axios for API calls. It demonstrates modern React hooks usage, API integration, and custom components styled with SCSS modules.
+
+## Features
+
+- Search GitHub users or repositories using the GitHub API.
+- Infinite scrolling to load more results as you scroll down.
+- Detailed user cards showing avatar, name, type, and score.
+- Repository cards showing name, description, forks count, and language badges.
+- Responsive and attractive UI with light/dark mode styling.
+- Error handling with retry functionality.
+- Debounced search input for optimized API calls.
+
+## Business Use Case
+
+This application can serve developers and project managers looking for inspiration or collaborators on GitHub. It provides quick access to popular users and repositories and allows filtering by relevance and popularity.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js (>= 16.x recommended)
+- npm or yarn package manager
+- GitHub API token (optional but recommended to increase API limits)
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/yourusername/github-explorer.git
+cd github-explorer
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Create a `.env.local` file in the root directory and add your GitHub API token (optional):
+
+```
+NEXT_PUBLIC_GITHUB_TOKEN=your_github_token_here
+NEXT_PUBLIC_GITHUB_API_URL=https://api.github.com
+```
+
+4. Run the development server:
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+- `/components` - React components (UI modules, layout, cards, search, etc.)
+- `/hooks` - Custom React hooks (infinite scroll, debounce, etc.)
+- `/pages` - Next.js pages
+- `/public` - Static files (icons, images)
+- `/styles` - Global and shared styles (Sass variables, mixins)
+- `/types` - TypeScript interfaces and types
+- `/utils` - Utility functions
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Scripts
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `dev` - Runs the app in development mode
+- `build` - Builds the app for production
+- `start` - Starts the production server
+- `lint` - Runs ESLint checks
+- `lint:fix` - Runs ESLint and fixes issues
 
-## Deploy on Vercel
+## Technologies Used
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Next.js (React framework)
+- TypeScript
+- Sass (SCSS modules)
+- Axios (HTTP client)
+- ESLint (code linting)
+- GitHub REST API v3
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Notes
+
+- The app handles rate limiting by GitHub API using debouncing and error handling.
+- Language icons are loaded from the `/public/icons` directory with fallback for unknown languages.
+- The UI uses consistent teal/dark blue color palette aligned with GitHub theme.
+
+---
+
+Feel free to contribute, raise issues, or submit pull requests to improve this project!
+
+---
+
+## License
+
+This project is licensed under the MIT License.
