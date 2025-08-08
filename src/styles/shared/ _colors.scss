@@ -31,7 +31,7 @@ $color-text-shadow: rgba(0, 0, 0, 0.4);
 $badge-bg: #34495e;
 
 @mixin phone {
-  @media (max-width: 600px) {
+  @media (max-width: 720px) {
     @content;
   }
 }

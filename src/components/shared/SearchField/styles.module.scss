@@ -1,16 +1,7 @@
 @use '../../../styles/shared/\ _colors.scss' as *;
 
-// .input {
-//   margin: 10px;
-//   padding: 3px 6px;
-//   width: 40%;
-//   height: 40px;
-//   border: 1px solid $color-gray-300;
-// }
-
-// @use '../../../styles/shared/_colors.scss' as *;
-
 .input {
+  box-sizing: border-box;
   margin: 10px auto;
   padding: 8px 14px;
   width: 50%;
@@ -20,6 +11,10 @@
   font-size: 1rem;
   background-color: #0d1117;
   color: white;
+
+  @include phone {
+     width: 100%;
+  }
 }
 
 .input:focus {
