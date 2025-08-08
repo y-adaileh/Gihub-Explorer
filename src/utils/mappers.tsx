@@ -33,7 +33,7 @@ export const mapRepositoriesData = (
       url: repo.owner.html_url,
       type: repo.owner.type,
       userViewType: repo.owner.user_view_type,
-      profileUrl: repo.owner.html_url
+      profileUrl: repo.owner.html_url,
     },
     description: repo.description,
     fork: repo.fork,

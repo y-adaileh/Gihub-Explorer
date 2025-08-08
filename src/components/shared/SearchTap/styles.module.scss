@@ -33,16 +33,19 @@
 }
 
 .tap-container.active button {
-  background: linear-gradient(90deg, #58a6ff, #1f6feb);
+  background: linear-gradient(90deg, $color-primary, $color-blue);
   color: white;
   height: 100%;
   width: 100%;
   border-radius: 25px 25px 0 0;
+  &:hover {
+    background: linear-gradient(90deg, $color-primary, $color-blue);
+  }
 }
 
 .tap-container button {
   background: #21262d;
-  color: #58a6ff;
+  color: $color-primary;
   height: 100%;
   width: 100%;
   border: 1px solid #30363d;

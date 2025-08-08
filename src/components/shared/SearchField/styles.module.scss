@@ -24,9 +24,9 @@
 
 .input:focus {
   outline: none;
-  border-color: #58a6ff;
+  border-color: $color-primary;
 }
 
 .input:hover {
-  border-color: #58a6ff;
+  border-color: $color-primary;
 }

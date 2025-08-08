@@ -1,4 +1,3 @@
-
 # GitHub Explorer
 
 ## Project Overview

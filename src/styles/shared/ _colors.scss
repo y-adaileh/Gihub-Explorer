@@ -7,11 +7,28 @@ $color-gray-300: #d1d5da;
 $color-gray-600: #586069;
 $color-gray-700: #444d56;
 
-$color-primary: #2da44e;
+$color-primary: #58a6ff;
 $color-primary-hover: #2c974b;
-$color-blue: #0969da;
+$color-blue: #1f6feb;
 $color-blue-hover: #0757b3;
 $color-danger: #cf222e;
+
+$accent: #1abc9c;
+$accent-dark: #16a085;
+
+$color-bg-dark: #0d1117;
+$color-bg-darker: #161b22;
+$bg-dark: #1e272e;
+$color-border: #30363d;
+
+$text-primary: #ecf0f1;
+$text-secondary: #bdc3c7;
+
+$color-hover-primary: #79c0ff;
+$shadow: rgba(0, 0, 0, 0.5);
+$color-text-shadow: rgba(0, 0, 0, 0.4);
+
+$badge-bg: #34495e;
 
 @mixin phone {
   @media (max-width: 600px) {
