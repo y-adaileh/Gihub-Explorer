@@ -29,7 +29,7 @@ The app also serves as a **backend API** to fetch GitHub users and repositories 
 ### Search Users
 
 ```
-https://github-explorer.vercel.app/api/users?searchTerm=test&page=1&limit=3
+https://gihub-explorer.vercel.app/api/users?searchTerm=test&page=1&limit=3
 ```
 
 **Sample Response**
@@ -53,7 +53,7 @@ https://github-explorer.vercel.app/api/users?searchTerm=test&page=1&limit=3
 ### Search Repositories
 
 ```
-https://github-explorer.vercel.app/api/repositories?searchTerm=test&page=1&limit=3
+https://gihub-explorer.vercel.app/api/repositories?searchTerm=test&page=1&limit=3
 ```
 
 **Sample Response**
