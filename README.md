@@ -27,11 +27,13 @@ The app also serves as a **backend API** to fetch GitHub users and repositories 
 ## API Endpoints
 
 ### Search Users
+
 ```
 https://github-explorer.vercel.app/api/users?searchTerm=test&page=1&limit=3
 ```
 
 **Sample Response**
+
 ```json
 [
   {
@@ -49,11 +51,13 @@ https://github-explorer.vercel.app/api/users?searchTerm=test&page=1&limit=3
 ```
 
 ### Search Repositories
+
 ```
 https://github-explorer.vercel.app/api/repositories?searchTerm=test&page=1&limit=3
 ```
 
 **Sample Response**
+
 ```json
 [
   {
@@ -73,7 +77,16 @@ https://github-explorer.vercel.app/api/repositories?searchTerm=test&page=1&limit
     "url": "https://github.com/apache/jmeter",
     "forksCount": 2201,
     "languages": [
-      "Java", "Kotlin", "HTML", "XSLT", "JavaScript", "Batchfile", "Shell", "CSS", "Less", "Groovy"
+      "Java",
+      "Kotlin",
+      "HTML",
+      "XSLT",
+      "JavaScript",
+      "Batchfile",
+      "Shell",
+      "CSS",
+      "Less",
+      "Groovy"
     ],
     "forkUsers": [
       {
@@ -132,11 +145,13 @@ https://github-explorer.vercel.app/api/repositories?searchTerm=test&page=1&limit
 ## Getting Started
 
 ### Prerequisites
+
 - Node.js (>= 16.x recommended)
 - npm or yarn
 - GitHub API token (optional but recommended for higher rate limits)
 
 ### Installation
+
 ```bash
 git clone https://github.com/yourusername/github-explorer.git
 cd github-explorer
@@ -146,17 +161,20 @@ yarn install
 ```
 
 Create `.env.local` in the root:
+
 ```
 NEXT_PUBLIC_GITHUB_TOKEN=your_github_token_here
 NEXT_PUBLIC_GITHUB_API_URL=https://api.github.com
 ```
 
 Run in development:
+
 ```bash
 npm run dev
 ```
 
 Build for production:
+
 ```bash
 npm run build
 npm start
@@ -165,6 +183,7 @@ npm start
 ---
 
 ## Scripts
+
 ```json
 "dev": "next dev --turbopack",
 "build": "next build",
@@ -180,6 +199,7 @@ npm start
 ---
 
 ## Technologies Used
+
 - Next.js
 - TypeScript
 - Sass (SCSS Modules)
@@ -190,4 +210,5 @@ npm start
 ---
 
 ## License
+
 MIT License

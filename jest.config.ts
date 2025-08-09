@@ -1,9 +1,9 @@
 // jest.config.ts
-import nextJest from 'next/jest.js'
+import nextJest from 'next/jest.js';
 
 const createJestConfig = nextJest({
   dir: './', // Path to your Next.js app
-})
+});
 
 const customJestConfig = {
   testEnvironment: 'jsdom',
@@ -11,6 +11,6 @@ const customJestConfig = {
   moduleNameMapper: {
     '\\.(css|scss|sass)$': 'identity-obj-proxy',
   },
-}
+};
 
-export default createJestConfig(customJestConfig)
+export default createJestConfig(customJestConfig);

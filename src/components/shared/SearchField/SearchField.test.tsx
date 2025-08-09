@@ -1,13 +1,12 @@
 import { render, screen } from '@testing-library/react';
 import { SearchField, SearchFieldProps } from '.';
-import { SearchTapLabel } from '@/types';
 
-const MockSearchFieldProps  : SearchFieldProps = {
+const MockSearchFieldProps: SearchFieldProps = {
   placeholder: 'Enter User name',
-  value: 'Test', 
+  value: 'Test',
   type: 'text',
-  onChange: () => {}
-}
+  onChange: () => {},
+};
 
 describe('SearchField', () => {
   test('renders SearchField', () => {
