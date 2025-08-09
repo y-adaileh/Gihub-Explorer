@@ -2,112 +2,192 @@
 
 ## Project Overview
 
-GitHub Explorer is a web application that allows users to search and explore GitHub profiles and repositories. It provides a user-friendly interface to search for GitHub users and repositories with infinite scrolling, detailed user and repo cards, and language badges.
+GitHub Explorer is a **Next.js** web application that allows users to search and explore GitHub profiles and repositories.  
+It provides a clean, user-friendly interface to search GitHub users and repositories with infinite scrolling, detailed cards, and language badges.
 
-This project is built using Next.js, TypeScript, Sass, and Axios for API calls. It demonstrates modern React hooks usage, API integration, and custom components styled with SCSS modules.
+The app also serves as a **backend API** to fetch GitHub users and repositories via custom API endpoints.
+
+**Live Demo:** [https://github-explorer.vercel.app](https://github-explorer.vercel.app)
+
+---
 
 ## Features
 
-- Search GitHub users or repositories using the GitHub API.
-- Infinite scrolling to load more results as you scroll down.
-- Detailed user cards showing avatar, name, type, and score.
-- Repository cards showing name, description, forks count, and language badges.
-- Responsive and attractive UI with light/dark mode styling.
-- Error handling with retry functionality.
-- Debounced search input for optimized API calls.
+- Search GitHub **users** or **repositories** using the GitHub API.
+- Infinite scrolling to load more results dynamically.
+- **Detailed User Cards** — avatar, name, type, score, and profile link.
+- **Repository Cards** — name, description, forks count, language badges.
+- Responsive and attractive dark mode UI.
+- Error handling with **retry** functionality.
+- Debounced search input for optimized API requests.
+- Backend API endpoints for fetching users and repositories.
 
-## Business Use Case
+---
 
-This application can serve developers and project managers looking for inspiration or collaborators on GitHub. It provides quick access to popular users and repositories and allows filtering by relevance and popularity.
+## API Endpoints
+
+### Search Users
+```
+https://github-explorer.vercel.app/api/users?searchTerm=test&page=1&limit=3
+```
+
+**Sample Response**
+```json
+[
+  {
+    "id": 383316,
+    "name": "test",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/383316?v=4",
+    "url": "https://api.github.com/users/test",
+    "score": 1,
+    "type": "User",
+    "siteAdmin": false,
+    "userViewType": "public",
+    "profileUrl": "https://github.com/test"
+  }
+]
+```
+
+### Search Repositories
+```
+https://github-explorer.vercel.app/api/repositories?searchTerm=test&page=1&limit=3
+```
+
+**Sample Response**
+```json
+[
+  {
+    "id": 688352,
+    "name": "jmeter",
+    "owner": {
+      "id": 47359,
+      "name": "apache",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/47359?v=4",
+      "url": "https://github.com/apache",
+      "type": "Organization",
+      "userViewType": "public",
+      "profileUrl": "https://github.com/apache"
+    },
+    "description": "Apache JMeter open-source load testing tool for analyzing and measuring the performance of a variety of services",
+    "fork": false,
+    "url": "https://github.com/apache/jmeter",
+    "forksCount": 2201,
+    "languages": [
+      "Java", "Kotlin", "HTML", "XSLT", "JavaScript", "Batchfile", "Shell", "CSS", "Less", "Groovy"
+    ],
+    "forkUsers": [
+      {
+        "id": 224889242,
+        "name": "kmeir",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/224889242?v=4",
+        "url": "https://api.github.com/users/kmeir",
+        "type": "User",
+        "userViewType": "public",
+        "profileUrl": "https://github.com/kmeir"
+      },
+      {
+        "id": 7726027,
+        "name": "Optum",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/7726027?v=4",
+        "url": "https://api.github.com/users/Optum",
+        "type": "Organization",
+        "userViewType": "public",
+        "profileUrl": "https://github.com/Optum"
+      },
+      {
+        "id": 85241921,
+        "name": "thesaurabhmhaske",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/85241921?v=4",
+        "url": "https://api.github.com/users/thesaurabhmhaske",
+        "type": "User",
+        "userViewType": "public",
+        "profileUrl": "https://github.com/thesaurabhmhaske"
+      }
+    ]
+  }
+]
+```
+
+---
+
+## UI Screenshots
+
+- **No Data State**  
+  <img width="1262" height="544" alt="image" src="https://github.com/user-attachments/assets/070b0ae7-8ba0-4ae5-9542-512a67b852ad" />
+
+- **Error Message with Retry Button**  
+  <img width="1072" height="577" alt="image" src="https://github.com/user-attachments/assets/88a055e5-e2fe-47db-8749-5d6473b2ba18" />
+
+- **Circular Loader**  
+  <img width="1171" height="571" alt="image" src="https://github.com/user-attachments/assets/75d63e15-c8ad-4c72-89f5-dd8e546947cb" />
+
+- **User Card**  
+  <img width="1273" height="544" alt="image" src="https://github.com/user-attachments/assets/e53807dd-0883-411a-b8f8-55c4d1f6e32f" />
+
+- **Repository Card**  
+  <img width="1298" height="604" alt="image" src="https://github.com/user-attachments/assets/8354d88d-e3fa-4e8e-9ded-6b99ebb4ed01" />
+
+---
 
 ## Getting Started
 
 ### Prerequisites
-
 - Node.js (>= 16.x recommended)
-- npm or yarn package manager
-- GitHub API token (optional but recommended to increase API limits)
+- npm or yarn
+- GitHub API token (optional but recommended for higher rate limits)
 
 ### Installation
-
-1. Clone the repository:
-
 ```bash
 git clone https://github.com/yourusername/github-explorer.git
 cd github-explorer
-```
-
-2. Install dependencies:
-
-```bash
 npm install
 # or
 yarn install
 ```
 
-3. Create a `.env.local` file in the root directory and add your GitHub API token (optional):
-
+Create `.env.local` in the root:
 ```
 NEXT_PUBLIC_GITHUB_TOKEN=your_github_token_here
 NEXT_PUBLIC_GITHUB_API_URL=https://api.github.com
 ```
 
-4. Run the development server:
-
+Run in development:
 ```bash
 npm run dev
-# or
-yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-### Build for Production
-
+Build for production:
 ```bash
 npm run build
 npm start
 ```
 
-## Project Structure
-
-- `/components` - React components (UI modules, layout, cards, search, etc.)
-- `/hooks` - Custom React hooks (infinite scroll, debounce, etc.)
-- `/pages` - Next.js pages
-- `/public` - Static files (icons, images)
-- `/styles` - Global and shared styles (Sass variables, mixins)
-- `/types` - TypeScript interfaces and types
-- `/utils` - Utility functions
+---
 
 ## Scripts
-
-- `dev` - Runs the app in development mode
-- `build` - Builds the app for production
-- `start` - Starts the production server
-- `lint` - Runs ESLint checks
-- `lint:fix` - Runs ESLint and fixes issues
-
-## Technologies Used
-
-- Next.js (React framework)
-- TypeScript
-- Sass (SCSS modules)
-- Axios (HTTP client)
-- ESLint (code linting)
-- GitHub REST API v3
-
-## Notes
-
-- The app handles rate limiting by GitHub API using debouncing and error handling.
-- Language icons are loaded from the `/public/icons` directory with fallback for unknown languages.
-- The UI uses consistent teal/dark blue color palette aligned with GitHub theme.
+```json
+"dev": "next dev --turbopack",
+"build": "next build",
+"start": "next start",
+"lint": "next lint",
+"lint:fix": "next lint --fix",
+"format": "prettier --write .",
+"format:check": "prettier --check .",
+"test": "jest --passWithNoTests",
+"test:watch": "jest --watch"
+```
 
 ---
 
-Feel free to contribute, raise issues, or submit pull requests to improve this project!
+## Technologies Used
+- Next.js
+- TypeScript
+- Sass (SCSS Modules)
+- Axios
+- ESLint & Prettier
+- GitHub REST API v3
 
 ---
 
 ## License
-
-This project is licensed under the MIT License.
+MIT License
