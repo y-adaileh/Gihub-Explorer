@@ -141,6 +141,22 @@ https://gihub-explorer.vercel.app/api/repositories?searchTerm=test&page=1&limit=
   <img width="1298" height="604" alt="image" src="https://github.com/user-attachments/assets/8354d88d-e3fa-4e8e-9ded-6b99ebb4ed01" />
 
 ---
+## Lighthouse Report  
+
+The application was tested using **Google Lighthouse** in Chrome DevTools (Desktop mode).  
+
+| Category        | Score |
+|-----------------|-------|
+| Performance     | 91    |
+| Accessibility   | 90    |
+| Best Practices  | 96    |
+| SEO             | 80    |
+
+**Screenshots:**  
+ <img width="1361" height="577" alt="image" src="https://github.com/user-attachments/assets/88c1a565-6e91-48f6-b63e-916030c67887" />
+ <img width="1347" height="642" alt="image" src="https://github.com/user-attachments/assets/5bee82dc-9dc9-447a-8e42-6b6b845f032e" />
+
+---
 
 ## Getting Started
 
