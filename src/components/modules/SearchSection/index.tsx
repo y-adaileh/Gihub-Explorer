@@ -166,8 +166,6 @@ function SearchSection() {
             `${config.api.routes.users}?searchTerm=${debounceSearchTerm}&limit=${PAGE_LIMIT}&page=${page}`
           );
           if (data?.length !== 0) {
-            console.log('data?.length', data?.length);
-
             setHasMoreItems(data?.length === PAGE_LIMIT);
             setSearchUsersResults((prev) => [...prev, ...data]);
           }
