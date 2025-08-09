@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './styles.module.scss';
 
-interface ErrorMessageProps {
+export interface ErrorMessageProps {
   onRetry: () => void;
   message?: string;
 }

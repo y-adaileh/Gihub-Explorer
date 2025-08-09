@@ -8,7 +8,7 @@ export interface SearchFieldProps {
 
 export const SearchField = (props: SearchFieldProps) => {
   return (
-    <div>
+    <div data-testid="search-input">
       <input className={styles.input} {...props} />
     </div>
   );
