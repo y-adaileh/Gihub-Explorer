@@ -7,7 +7,7 @@ It provides a clean, user-friendly interface to search GitHub users and reposito
 
 The app also serves as a **backend API** to fetch GitHub users and repositories via custom API endpoints.
 
-**Live Demo:** [https://github-explorer.vercel.app](https://github-explorer.vercel.app)
+**Live Demo:** [https://gihub-explorer.vercel.app](https://gihub-explorer.vercel.app)
 
 ---
 
